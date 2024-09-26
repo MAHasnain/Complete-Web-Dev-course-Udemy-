@@ -1,0 +1,90 @@
+/* 1. Universal Selectors */
+
+* {
+    margin: 0%;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* 2. Type Selectors */
+
+p {
+    color: brown;
+    margin: 50px;
+}
+
+h1 {
+    font-size: larger;
+}
+
+
+/* 3. Class Selectors */
+
+.main-heading {
+    padding: 30px;
+}
+
+
+/* 4. ID Selectors */
+
+#navbar {
+    background-color: pink;
+}
+
+/* 5. Attribute Selectors */
+
+input [type='text'] {
+    border: 5px dashed blanchedalmond;
+}
+
+/* 6. Descendant Selectors --> grand child is a descendant  */
+
+hgroup h3 {
+    color: violet;
+}
+
+div p {
+    font-style: italic;
+}
+
+
+/* 7. child Selectors */
+
+footer>div {
+    background-color: wheat;
+}
+
+
+/* 8. Adjacent Sibling Selectors */
+
+h3+p {
+    background-color: rgb(255, 0, 255);
+}
+
+/* 9. General Sibling Selectors */
+
+div~p {
+    font-weight: lighter;
+}
+
+
+/* 10. Pseudo-class Selector */
+
+p:hover {
+    background-color: rgb(252, 153, 136);
+    margin: 2px;
+    font-style: italic;
+    color: yellow;
+}
+
+/* 11. Pseudo-element Selector */
+
+p::first-letter {
+    font-size: x-large;
+}
+
+/* 12. Grouping Selector */
+
+h1, h3 {
+    background-color: yellow;
+} 
