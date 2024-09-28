@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdown Navbars</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 5;
+        box-sizing: border-box;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+
+      h1 {
+        /* color: turquoise; */
+        padding: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: whitesmoke;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      nav {
+        /* border: 1px solid black; */
+      }
+
+      .dropdown-content {
+        display: none;
+      }
+
+      .dropdown :hover .dropdown-content {
+        display: block;
+      }
+
+      ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .nav-container {
+        background-color: skyblue;
+        padding: 10px;
+        margin: 20px;
+      }
+
+      .Login-btn {
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+        padding: 5px 10px;
+        color: white;
+        background-color: blue;
+      }
+
+      .Login-btn:hover {
+        /* border: 0.5px solid white; */
+        background-color: rgb(171, 231, 254);
+        color: rgb(0, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Navbar with Dropdown content</h1>
+      <nav>
+        <div class="nav-container">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+              <a href="#">About</a>
+              <div class="dropdown-content">
+                <a href="#">Our Story</a>
+                <a href="#">Team</a>
+                <a href="#">Contact</a>
+              </div>
+            </li>
+            <li><a href="#">Products</a></li>
+            <li><button class="Login-btn" type="submit">Login</button></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>
