@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      html,
+      body {
+        background-color: black;
+        color: white;
+        height: 100%;
+        width: 100%;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .navbar {
+        width: 50%;
+        background-color: rgb(255, 255, 255);
+        padding: 20px;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      ul {
+        cursor: pointer;
+      }
+      li {
+        padding: 10px;
+        padding-right: 100%;
+        list-style: none;
+      }
+
+      li:hover {
+        padding-right: 10px;
+        border-radius: 5px;
+        background-color: rgb(180, 178, 178);
+      }
+
+      a {
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .btn-login {
+        font-weight: 500;
+        width: 100%;
+        margin-top: 20px;
+        cursor: pointer;
+        color: white;
+        background-color: rgb(48, 106, 108);
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid rgb(4, 4, 4);
+      }
+
+      .btn-login:hover {
+        color: rgb(0, 0, 0);
+        background-color: cadetblue;
+        border: 1px solid rgb(100, 99, 99);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Navbar with vertical hover effect</h1>
+      <div class="nav-container">
+        <div class="navbar">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Products</a></li>
+          </ul>
+          <button class="btn-login" type="submit">Login</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
