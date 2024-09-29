@@ -14,18 +14,28 @@
       }
       html,
       body {
+        background-color: rgb(59, 59, 59);
         height: 100%;
         width: 100%;
       }
 
       h1 {
-        /* color: turquoise; */
+        color: white;
         padding: 10px;
       }
 
       a {
         text-decoration: none;
-        color: whitesmoke;
+        color: rgb(0, 0, 0);
+        display: block;
+        padding: 10px;
+        font-weight: 800;
+      }
+
+      a:hover {
+        background-color: rgb(185, 185, 185);
+        border-radius: 10px;
+        color: white;
       }
 
       li {
@@ -37,11 +47,17 @@
       }
 
       .dropdown-content {
+      }
+
+      nav .dropdown-content {
         display: none;
       }
 
-      .dropdown :hover .dropdown-content {
+      nav .dropdown:hover .dropdown-content {
         display: block;
+        position: absolute;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
       }
 
       ul {
@@ -51,7 +67,7 @@
       }
 
       .nav-container {
-        background-color: skyblue;
+        background-color: rgb(255, 255, 255);
         padding: 10px;
         margin: 20px;
       }
@@ -62,12 +78,12 @@
         border: none;
         padding: 5px 10px;
         color: white;
-        background-color: blue;
+        background-color: rgb(185, 185, 185);
       }
 
       .Login-btn:hover {
         /* border: 0.5px solid white; */
-        background-color: rgb(171, 231, 254);
+        background-color: rgb(221, 221, 221);
         color: rgb(0, 0, 0);
       }
     </style>
