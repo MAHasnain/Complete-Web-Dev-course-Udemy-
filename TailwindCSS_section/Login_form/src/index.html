@@ -6,20 +6,33 @@
     <title>Document</title>
     <link rel="stylesheet" href="./output.css" />
   </head>
-  <body class="bg-slate-800">
-    <div class="bg-slate-500">
-      <h2 class="text-white ">Login</h2>
+  <body class="bg-slate-900 flex justify-center items-center min-h-screen">
+    <div class="bg-slate-500 p-8 rounded-lg max-w-sm w-full hover:shadow-lg hover:bg-slate-700">
+      <h2 class="font-bold text-3xl mb-4 text-white">Login</h2>
       <form>
-        <div>
-          <label
-            >Email<input type="email" placeholder="enter your email" />
-          </label>
+        <div class="">
+          <label class="block text-sm font-medium mb-2 text-white">Email</label>
+          <input
+            class="hover:bg-slate-800 w-full px-3 py-2 rounded-md bg-gray-500 focus:outline-none mb-2 text-white"
+            type="email"
+            placeholder="enter your email"
+          />
         </div>
         <div>
-          <label
-            >Password<input type="password" placeholder="enter your password"
-          /></label>
+          <label class="block text-sm font-medium mb-2 text-white"
+            >Password</label
+          ><input
+            class="hover:bg-slate-800 w-full px-3 py-2 rounded-md bg-gray-500 focus:outline-none mb-2 text-white"
+            type="password"
+            placeholder="enter your password"
+          />
         </div>
+        <button
+          class="mt-2 bg-gray-600 text-white py-2 rounded-md w-full hover:bg-gray-500 hover:shadow-lg hover:text-gray-900"
+          type="submit"
+        >
+          Login
+        </button>
       </form>
     </div>
   </body>
