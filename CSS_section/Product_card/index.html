@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+      }
+
+      body {
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .card {
+        position: relative;
+        height: 400px;
+        width: 300px;
+        background-color: #fafafa;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+          rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      }
+
+      .card .best {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 5px;
+        background-color: #c81212;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        border-radius: 5px 0 0 0;
+      }
+
+      .img {
+        width: 300px;
+        height: 150px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        overflow: hidden;
+        text-align: center;
+      }
+
+      .img img {
+        width: 80%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .img img:hover {
+        transform: scale(1.1);
+      }
+
+      h1 {
+        font-size: 23px;
+        margin-bottom: 10px;
+      }
+
+      .price {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .color-picker p {
+        font-size: 18px;
+        color: #111111;
+        margin-bottom: 7px;
+      }
+
+      .color {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .color p {
+        position: absolute;
+        top: 3px;
+        left: 0;
+      }
+
+      .color span {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s all linear;
+      }
+
+      .color span:hover {
+        border: 1px solid #111;
+      }
+
+      span:nth-child(1) {
+        background-color: #b1632f;
+      }
+      span:nth-child(2) {
+        background-color: #f14c14;
+      }
+      span:nth-child(3) {
+        background-color: #c81212;
+      }
+      span:nth-child(4) {
+        background-color: #000000;
+      }
+
+      .price .offer {
+        font-size: 22px;
+        color: #c81212;
+        font-weight: 600;
+      }
+      .price .normal {
+        font-size: 18px;
+        color: #666;
+        font-weight: 500;
+        text-decoration: line-through;
+      }
+
+      .action {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .action button {
+        width: 50%;
+        padding: 10px;
+        background-color: #c81212;
+        color: #fff;
+        border-radius: 3px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="best">Bestseller</div>
+      <div class="img">
+        <img
+          src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/399665/04/sv01/fnd/IND/fmt/png/ST-Runner-v4-Suede-Unisex-Sneakers"
+          alt=""
+        />
+      </div>
+      <h1>Puma Unisex Sneakers</h1>
+
+      <div class="price">
+        <div class="color-picker">
+          <p>Choose Color</p>
+          <div class="color">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="price-box">
+          <p class="normal">₹5,999</p>
+          <p class="offer">₹3,599</p>
+        </div>
+      </div>
+
+      <div class="action">
+        <button>Buy Now</button>
+        <button>Add to Wishlist</button>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+      main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 500px;
+      }
+
+      .img {
+        width: 300px;
+        height: 150px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        overflow: hidden;
+        text-align: center;
+      }
+
+      img {
+        width: 80%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      img:hover {
+        transform: scale(1.1);
+      }
+
+      .card {
+        background-color: rgb(251, 251, 251);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btns {
+        width: 100%;
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .btn {
+        cursor: pointer;
+        background-color: red;
+        color: white;
+        padding: 8px;
+        border: none;
+        border-radius: 2px;
+      }
+
+      .normal {
+      }
+
+      .choose-color {
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+      }
+      .colors {
+        border-radius: 10px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card">
+        <div>
+          <div class="img">
+            <img
+              src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/399665/04/sv01/fnd/IND/fmt/png/ST-Runner-v4-Suede-Unisex-Sneakers"
+              alt=""
+            />
+            <br />
+          </div>
+        </div>
+        <h2>Puma Unisex Sneakers</h2>
+        <div class="choose-color">
+          <h3>Choose Color</h3>
+          <div class="color">
+            <p>
+              <span style="background-color: green" class="colors"></span>
+              <span style="background-color: orange" class="colors"></span>
+              <span style="background-color: red" class="colors"></span>
+              <span style="background-color: black" class="colors"></span>
+            </p>
+          </div>
+        </div>
+        <div class="price">
+          <p class="normal">₹5,999</p>
+          <p class="offer">₹3,599</p>
+        </div>
+        <div class="btns">
+          <button class="btn" style="margin-right: 20px" type="submit">
+            Buy Now</button
+          ><button class="btn" type="submit">Add to Wishlist</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html> -->
