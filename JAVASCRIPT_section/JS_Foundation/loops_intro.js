@@ -45,13 +45,29 @@ for (let i = 1; i <= 5; i++) {
 Store each tea type in an array named 'teaCollection`.
 */
 
+// let teaCollection = [];
+// let tea;
 
+// do {
+//   tea = prompt(`type your favorite tea (enter 'stop' to finish)`);
+
+//   if (tea !== "stop") {
+//     teaCollection.push(tea);
+//   }
+// } while (tea !== "stop");
 
 /*
 4. Write a `do while loop that adds numbers from 1 to 3 and stores the result in a variable named `total`.
 */
 
+let total = 0;
+let k = 1;
 
+do {
+  total += k;
+  k++;
+} while (total <= 3);
+console.log(total)
 
 /*
 5. Write a `for` loop that multiplies each element in the
@@ -66,7 +82,7 @@ for (let i = 0; i < numbers.length; i++) {
   multipliedNumbers.push(element);
 }
 
-console.log(multipliedNumbers);
+// console.log(multipliedNumbers);
 
 /*
 6. Write a for` loop that lists all the cities in the array `["Paris", "New York", "Tokyo", "London"]` and stores each city in a new array named `cityList`.
@@ -80,4 +96,4 @@ for (let i = 0; i < cities.length; i++) {
   cityList.push(city);
 }
 
-console.log(`cityList =`, cityList);
+// console.log(`cityList =`, cityList);
