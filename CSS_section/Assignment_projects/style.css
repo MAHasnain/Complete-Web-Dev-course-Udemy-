@@ -88,7 +88,20 @@ nav .about-us {
     width: 800px;
 }
 
+.section-our-mission {
+    background-color: rgb(186, 186, 186);
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.img-and-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 section .section-our-mission p {
     text-align: center;
@@ -96,9 +109,35 @@ section .section-our-mission p {
     width: 800px;
 }
 
-.section-our-mission-imgDiv{
-    display: grid;
+.section-our-mission-text {
+    text-align: center;
+    padding: 30px;
 }
-.section-our-mission-imgDiv img{
+
+.section-our-mission-imgDiv {
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.section-our-mission-imgDiv img {
     height: 200px;
+}
+
+/* .image1 {}
+
+.image2 {}
+
+.image3 {} */
+
+
+.section-Meet-Our-Leaders {
+    background-color: rgb(169, 169, 169);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-Meet-Our-Leaders-img-div img {
+    border-radius: 50%;
 }
