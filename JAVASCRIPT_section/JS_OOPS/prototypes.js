@@ -3,7 +3,7 @@
 let person = {
   name: "Hasnain",
   age: 20,
-  email: 'muhatta427@gmail.com'
+  email: "muhatta427@gmail.com",
 };
 
 let person2 = {
@@ -19,3 +19,13 @@ console.log(person);
 Object.setPrototypeOf(person, person2);
 console.log(person.isLoggedIn);
 // console.log(person.email);
+
+Array.prototype.myDets = function () {
+  return this;
+};
+
+let myName = ["Muhammad Atta ul Hasnain"];
+console.log(`My Name is ${myName.myDets()}`);
+
+let myAge = [23]
+console.log(`I'm ${myAge.myDets()} years old.`)
