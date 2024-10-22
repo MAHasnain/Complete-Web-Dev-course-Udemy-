@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS DOM Manipulation</title>
+
+    <style>
+      body {
+        background-color: #1a1a1a;
+        color: white;
+        text-align: center;
+      }
+
+      div {
+        background-color: rgb(76, 76, 76);
+        padding: 20px;
+        margin: 20px;
+      }
+      button {
+        background-color: black;
+        color: aqua;
+        padding: 5px;
+      }
+      button:hover {
+        background-color: gray;
+      }
+
+      .highlight {
+        background-color: white;
+        color: black;
+        font-weight: bold;
+      }
+
+      ul {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JAVASCRIPT DOM Fun Examples</h1>
+
+    <div class="accessing">
+      <h2>Accessing DOM elements</h2>
+      <p class="accessing-Paragraph">
+        This is a paragraph. Click the button to change me for five seconds!
+      </p>
+      <button class="accessingBtn">Change Text</button>
+    </div>
+
+    <div class="Traversing">
+      <h2>Traversing the DOM</h2>
+      <ul class="citiesList">
+        <li>New York</li>
+        <li>Tokyo</li>
+        <li>Paris</li>
+        <li>London</li>
+      </ul>
+      <button class="traversingBtn">Highlight First City</button>
+    </div>
+
+    <div class="manipulating">
+      <h2>Manipulating the DOM</h2>
+      <p class="coffeeOrder">Order: <span id="orderType">Latte</span></p>
+      <button class="manipulatingBtn">Change order to Espresso</button>
+    </div>
+
+    <div class="Adding and inserting">
+      <h2>Adding and Inserting in DOM</h2>
+      <ul class="shoppingItems">
+        <li>Bread</li>
+        <li>Milk</li>
+      </ul>
+      <button class="addBtn">Add a new item to the shopping list</button>
+    </div>
+
+    <div class="removing">
+      <h2>Removing Elements in DOM</h2>
+      <ul class="taskList">
+        <li>Task 1</li>
+        <li>Task 2</li>
+        <li>Task 3</li>
+      </ul>
+      <button class="removingBtn">Remove Last Task</button>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
