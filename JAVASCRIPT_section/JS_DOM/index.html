@@ -10,6 +10,8 @@
         background-color: #1a1a1a;
         color: white;
         text-align: center;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
       }
 
       div {
@@ -29,7 +31,11 @@
       .highlight {
         background-color: white;
         color: black;
-        font-weight: bold;
+        /* font-weight: bold; */
+      }
+
+      .boldText{
+        font-weight: bolder;
       }
 
       ul {
@@ -82,6 +88,44 @@
         <li>Task 3</li>
       </ul>
       <button class="removingBtn">Remove Last Task</button>
+    </div>
+    <div class="handling">
+      <h2>Handling Events in DOM</h2>
+      <button class="handlingBtn">Hover me!</button>
+    </div>
+    <div class="eventDelegation">
+      <h2>Event Delegation</h2>
+      <ul class="teaList">
+        <li>Oolong Tea</li>
+        <li>Green Tea</li>
+        <li>Masala Tea</li>
+        <li>Lemon Tea</li>
+      </ul>
+      <!-- <button class="eventDelegationBtn">Click me!</button> -->
+    </div>
+
+    <div class="formSubmition">
+      <h2>Feedback form</h2>
+      <form id="feedbackForm">
+        <label for="feedbackInput">Your Feedback</label
+        ><input
+          type="text"
+          class="feedbackInput"
+          placeholder="Enter Feedback"
+        /><button class="feedbackBtn" type="submit">Submit</button>
+      </form>
+      <p class="feedbackDisplay"></p>
+    </div>
+
+    <div class="DOMContentLoad">
+      <h2>DOM Content Load</h2>
+      <p class="DOMstatus">Waiting for DOM to load...</p>
+    </div>
+
+    <div class="cssManipulation">
+      <h2>CSS Manipulation</h2>
+      <p class="manipulationPara">This text will change color</p>
+      <button type="submit" class="cssManipulationBtn">change color</button>
     </div>
   </body>
   <script src="script.js"></script>

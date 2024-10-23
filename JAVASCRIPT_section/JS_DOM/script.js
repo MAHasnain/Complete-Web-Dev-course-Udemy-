@@ -50,20 +50,65 @@ document
 let addBtn = document.querySelector(".addBtn");
 
 addBtn.addEventListener("click", function () {
-  
   let shoppingItems = document.querySelector(".shoppingItems");
   let newItem = document.createElement("li");
-  newItem.textContent = "Eggs"
+  newItem.textContent = "Eggs";
 
   shoppingItems.appendChild(newItem);
-
 });
-
 
 // example 5
 
 let removingBtn = document.querySelector(".removingBtn");
-removingBtn.addEventListener('click', function () {
+removingBtn.addEventListener("click", function () {
   document.querySelector(".taskList").lastElementChild.remove();
-})
+});
 
+// example 6
+
+document.querySelector(".handlingBtn").addEventListener("mouseover", function () {
+  alert("Hello MAH!");
+});
+
+// example 7
+
+let teaList = document
+  .querySelector(".teaList")
+  .addEventListener("click", function (event) {
+    // console.log(event.target)
+    if (event.target) {
+      alert(`${event.target.textContent} is ready.`);
+    }
+  });
+
+// example 8
+
+let feedbackDisplay = document.querySelector(".feedbackDisplay");
+
+let feedback = document.querySelector(".feedbackInput");
+
+document
+  .querySelector(".feedbackBtn")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log(feedback.value);
+
+    feedbackDisplay.textContent = `feedback is ${feedback.value}`;
+  });
+
+// example 9
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    document.querySelector(".DOMstatus").textContent = `DOM fully loaded`;
+  }, 3000);
+});
+
+// example 10
+
+document
+  .querySelector(".cssManipulationBtn")
+  .addEventListener("click", function () {
+    document.querySelector(".manipulationPara").classList.toggle("highlight")
+    document.querySelector(".manipulationPara").classList.toggle("boldText")
+  });
