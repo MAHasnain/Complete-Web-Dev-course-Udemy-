@@ -17,4 +17,38 @@ async function getUserData() {
   }
 }
 
-getUserData();
+// getUserData();
+
+function post() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Post Data fetched.");
+    }, 3000);
+  });
+}
+
+function comment() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Comment Data fetched.");
+    }, 3000);
+  });
+}
+
+async function blogData() {
+  try {
+    console.log("blog data fetching...");
+    // let postData = await post();
+    // let commentData = await comment();
+
+    const [postData, commentData] = await Promise.all([post(), comment()])
+
+    console.log(postData);
+    console.log(commentData);
+    console.log("fetch complete.");
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+blogData();
