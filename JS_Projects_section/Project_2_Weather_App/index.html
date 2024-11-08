@@ -5,16 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    body {
+      background-color: #313131;
+      color: white;
+      display: flex;
+      justify-self: center;
+    }
+    .container {
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
   <body>
     <div class="container">
       <h1>Weather App</h1>
       <div class="input-div">
-        <input type="text" placeholder="Enter city name">
+        <input type="text" class="city-input" placeholder="Enter city name" />
         <button id="get-weather-btn">Get Weather</button>
         <div class="hidden" id="weather-info">
-            <h2 id="city-name"></h2>
-            <p id="temperature"></p>
-            <p id="description"></p>
+          <h2 id="city-name"></h2>
+          <p id="temperature"></p>
+          <p id="description"></p>
         </div>
         <p class="hidden" id="error-msg">City not found. Please try again.</p>
       </div>
