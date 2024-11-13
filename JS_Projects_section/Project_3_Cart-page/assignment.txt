@@ -1,0 +1,4 @@
+The first task is that as soon as I add this, there is no way to remove it.
+So you have to go and add into this a remove button and probably add some CSS for it as well.
+
+Another thing that you have to do is if I go ahead and refresh this page, the card gets empty. So what I want is to inject APIs of local storage, and we have already learned that if I add this card, there should be something inside my local storage so that IT cards cannot remain persistent. And even if I refresh, it doesn't go away.
