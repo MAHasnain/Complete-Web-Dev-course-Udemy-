@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Expense Tracker</h1>
+      <form id="expense-form">
+        <input type="text" id="expense-name" placeholder="Expense name" required />
+        <input type="number" id="expense-amount" placeholder="amount" required />
+        <button type="submit" id="submitBtn">Add Expense</button>
+      </form>
+
+      <h2>Expenses</h2>
+      <ul id="expense-list"></ul>
+
+      <div class="total">Total: <span id="total-amount">0.00</span></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
