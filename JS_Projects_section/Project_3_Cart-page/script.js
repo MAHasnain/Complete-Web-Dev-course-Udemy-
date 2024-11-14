@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPriceDisplay = document.getElementById("total-price");
   const cartItems = document.querySelector("#cart-items");
 
-//   const totalPrice = document.getElementById('total-price')
+  //   const totalPrice = document.getElementById('total-price')
 
   products.forEach((product) => {
     const productDiv = document.createElement("div");
@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const productId = parseInt(e.target.getAttribute("data-id"));
       const product = products.find((p) => p.id === productId);
       addToCart(product);
+      cartItemsSaveLS(product)
     }
   });
 
@@ -49,7 +50,20 @@ document.addEventListener("DOMContentLoaded", () => {
       cart.forEach((item, index) => {
         totalPrice += item.price;
         const cartItem = document.createElement("div");
-        cartItem.innerText = `${item.name} - ${item.price.toFixed(2)}`;
+        cartItem.innerText = `${item.name} - ${item.price.toFixed(2)}
+        `;
+        // `<button>Remove</button>`
+        let removeBtn = document.createElement("button");
+        removeBtn.addEventListener("click", () => {
+          cartItem.remove();
+          totalPriceDisplay.textContent = `$${(totalPrice -= item.price.toFixed(2))}`;
+          cart.length = 0;
+          // emptyMsg.classList.remove("hidden");
+        });
+        
+        removeBtn.innerHTML = "Remove";
+        cartItem.appendChild(removeBtn);
+
         cartItems.appendChild(cartItem);
         totalPriceDisplay.textContent = `${totalPrice}`;
       });
@@ -58,10 +72,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function cartItemsSaveLS(product  ) {
+    localStorage.setItem('cartItem', JSON.stringify(product))
+    
+  }
+
   checkOutBtn.addEventListener("click", () => {
-    cart.length = 0
-    alert('Check Out successfully')
-    renderCart()
-    totalPriceDisplay.textContent = `$0.00`
+    cart.length = 0;
+    alert("Check Out successfully");
+    renderCart();
+    totalPriceDisplay.textContent = `$0.00`;
   });
 });
