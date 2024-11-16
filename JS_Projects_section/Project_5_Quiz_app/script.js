@@ -35,6 +35,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   startBtn.addEventListener("click", startQuiz);
 
+  nextBtn.addEventListener("click", () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      showQuestion();
+    } else {
+      showResult();
+    }
+  });
+
+  restartBtn.addEventListener("click", () => {
+    currentQuestionIndex = 0;
+    score = 0;
+    resultContainer.classList.remove("hidden");
+    startQuiz();
+    // showQuestion();
+  });
+
+  function showResult() {
+    quizContainer.classList.add("hidden");
+    resultContainer.classList.remove("hidden");
+    scoreDisplay.textContent = `${score} out of ${questions.length}`;
+  }
+
   function startQuiz() {
     startBtn.classList.add("hidden");
     resultContainer.classList.add("hidden");
@@ -59,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (correctAns === choice) {
       score++;
     }
-    nextBtn.classList.add('hidden');
+    nextBtn.classList.remove("hidden");
   }
-
 });
