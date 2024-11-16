@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            background-color: #3b3b3b;
+            color: white;
+        }
+
+        .hidden{
+            display: none;
+        }
+    </style>
 </head>
 <body>
+
+    <div class="container">
+        <h1>Quiz App</h1>
+        <div id="quiz-container" class="hidden">
+            <h2 class="question-text"></h2>
+            <ul id="choices-list"></ul>
+            <button id="next-btn" class="hidden">Next Question</button>
+        </div>
+        <div id="result-container" class="hidden">
+            <h3>Your Score:</h3>
+            <p id="score"></p>
+            <button id="restart-btn" >Restart Quiz</button>
+        </div>
+        <button id="start-btn" >Start Quiz</button>
+    </div>
     
     <script src="script.js"></script>
 </body>
