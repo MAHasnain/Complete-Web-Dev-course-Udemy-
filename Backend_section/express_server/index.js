@@ -1,5 +1,7 @@
 import express from "express";
 import "dotenv/config";
+import logger from "./logger.js";
+import morgan from "morgan";
 // dotenv.config()
 
 const app = express();
@@ -15,6 +17,26 @@ app.use(express.json()); /// frontend se data get krny k liye use kiya jaata h
 
 let userData = [];
 let nextId = 1;
+
+
+const morganFormat = ":method :url :status :response-time ms";
+
+// Logger
+app.use(
+  morgan(morganFormat, {
+    stream: {
+      write: (message) => {
+        const logObject = {
+          method: message.split(" ")[0],
+          url: message.split(" ")[1],
+          status: message.split(" ")[2],
+          responseTime: message.split(" ")[3],
+        };
+        logger.info(JSON.stringify(logObject));
+      },
+    },
+  })
+);
 
 // register a user
 app.post("/user", (req, res) => {
