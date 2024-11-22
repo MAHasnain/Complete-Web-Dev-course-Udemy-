@@ -1,39 +1,46 @@
 import express from "express";
 
 const app = express();
-app.use(express.json());
+app.use(express.json()); /// frontend se data get krny k liye use kiya jaata h
 
-let usersData = [];
-let userId = 1;
+// app.get("/", (req, res) => {
+//     res.send(`Hello MAH's`)
+// });
+
+// app.get("/twitter", (req, res) => {
+//     res.send(`twitter/attaulhasnain`)
+// });
+
+let userData = [];
+let nextId = 1;
+
+// register a user
+app.post("/user", (req, res) => {
+  const { name, email } = req.body;
+  const newUser = { id: nextId++, name, email };
+  userData.push(newUser);
+  res.status(201).send(newUser);
+});
 
 // get all users
 app.get("/users", (req, res) => {
-  res.status(200).send(usersData);
+  res.status(200).send(userData);
 });
 
-// get a user with id
-app.get("/user/:id", (req, res) => {
-  const user = usersData.find((user) => user.id === parseInt(req.params.id));
+// get a users with Id
+app.get("/users/:id", (req, res) => {
+  const user = userData.find((u) => u.id === parseInt(req.params.id));
   if (!user) {
-    return res.status(404).send("User Not found.");
+    return res.status(404).send("User Not found");
   }
   res.status(200).send(user);
 });
 
-// register a new user
-app.post("/user", (req, res) => {
-  const { name, email } = req.body;
-  const newUser = { id: userId++, name, email };
-  usersData.push(newUser);
-  res.status(201).send(newUser);
-});
-
 // update user
 app.put("/user/:id", (req, res) => {
-  const id = req.params.id;
-  const user = usersData.find((u) => u.id === parseInt(req.params.id));
+  const user = userData.find((u) => u.id === parseInt(req.params.id));
   if (!user) {
-    return res.status(404).send("User Not found.");
+    return res.status(404).send("User Not found");
   }
   const { name, email } = req.body;
   user.name = name;
@@ -42,18 +49,17 @@ app.put("/user/:id", (req, res) => {
   res.status(200).send(user);
 });
 
-// delete a user
 app.delete("/user/:id", (req, res) => {
-  const id = req.params.id;
-  const index = usersData.findIndex((u) => u.id === parseInt(req.params.id));
-  if (!index) {
-    return res.status(404).send("User Not found.");
+  const index = userData.findIndex((ui) => ui.id === parseInt(req.params.id));
+  if (index === -1) {
+    return res.status(404).send("user not found.");
   }
-  usersData.splice(index, 1);
-  res.status(204).send("deleted");
+  userData.splice(index, 1);
+  return res.status(204).send("deleted");
 });
 
-const port = 3000;
+const port = 5000;
+
 app.listen(port, () => {
-  `Server is listening at port: ${port}.`;
+  console.log(`Server is running at port: ${port}.`);
 });
