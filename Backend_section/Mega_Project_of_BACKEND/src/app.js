@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import logger from "./logger.js";
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
