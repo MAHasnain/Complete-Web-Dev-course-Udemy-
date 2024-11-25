@@ -2,10 +2,28 @@
  * _id string pk
 owner ObjectId user
 content string
+video ObjectId video
 createdAt Date
 updatedAt Date
  */
+import mongoose, { Schema } from "mongoose";
 
-import { mongoose, Schema } from "mongoose";
+const tweetSchema = new Schema(
+  {
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+    video: {
+      type: Schema.Types.ObjectId,
+      ref: "Video",
+    },
+  },
+  { timestamps: true }
+);
 
-const tweetSchema = new Schema({});
+export const Tweet = mongoose.model("Tweet", tweetSchema);
