@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import logger from "./logger.js";
 import morgan from "morgan";
-import cookieParser from "cookie-parser";
+// import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -10,6 +10,7 @@ const app = express();
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));
+// app.use(cookieParser())
 
 app.use(
   cors({
@@ -38,8 +39,13 @@ app.use(
 );
 
 // import routes
-import router from "./routes/healthcheck.routes.js";
+import healthcheckRouter from "./routes/healthcheck.routes.js";
+import userRouter from "./routes/user.routes.js";
+import { errorHandler } from "./middlewares/errors.middlewares.js";
 
-app.use("/api/v1/healthcheck", router);
+app.use("/api/v1/healthcheck", healthcheckRouter);
+app.use("/api/v1/users", userRouter);
+
+app.use(errorHandler)
 
 export { app };

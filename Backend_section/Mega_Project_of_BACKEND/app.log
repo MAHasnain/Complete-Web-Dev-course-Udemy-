@@ -1,1 +1,5 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/v1/healthcheck\",\"status\":\"200\",\"responseTime\":\"3.208\"}","timestamp":"2024-11-24T20:14:30.465Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users\",\"status\":\"404\",\"responseTime\":\"1.677\"}","timestamp":"2024-11-26T10:00:45.111Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/register\",\"status\":\"404\",\"responseTime\":\"0.626\"}","timestamp":"2024-11-26T10:02:28.764Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/register\",\"status\":\"400\",\"responseTime\":\"1.458\"}","timestamp":"2024-11-26T10:08:34.376Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/register\",\"status\":\"400\",\"responseTime\":\"2.288\"}","timestamp":"2024-11-26T10:09:37.301Z"}
