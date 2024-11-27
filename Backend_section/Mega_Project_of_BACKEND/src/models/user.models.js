@@ -64,6 +64,8 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
+
+
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
 
@@ -72,6 +74,12 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
+/**
+ * Compares the given password to the user's stored password.
+ * This is a bcrypt-based password comparison. It is asynchronous.
+ * @param {string} password - The password to compare to the user's stored password.
+ * @returns {Promise<boolean>} - true if the password is correct, false otherwise.
+ */
 userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
