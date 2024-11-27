@@ -39,13 +39,13 @@ app.use(
 );
 
 // import routes
-import healthcheckRouter from "./routes/healthcheck.routes.js";
+// import { healthcheckRouter } from "./controller/healthcheck.controllers.js";
 import userRouter from "./routes/user.routes.js";
 import { errorHandler } from "./middlewares/errors.middlewares.js";
 
-app.use("/api/v1/healthcheck", healthcheckRouter);
+// app.use("/api/v1/healthcheck", healthcheckRouter);
 app.use("/api/v1/users", userRouter);
 
-app.use(errorHandler)
+app.use(errorHandler);
 
 export { app };
