@@ -5,15 +5,17 @@ import { uploadCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
 const registerUser = asyncHandler(async (req, res) => {
+  // get user details from frontend
   const { username, fullname, email, password } = req.body;
 
-  //   Validation
+  //   Validation: (is any field empty)
   if (
     [username, fullname, email, password].some((field) => field?.trim() === "")
   ) {
     throw new ApiError(400, "All fields are required.");
   }
 
+  // checking user existence
   const existedUser = await User.findOne({
     $or: [{ username }, { email }],
   });
@@ -21,13 +23,26 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(409, `User with email or username already exists.`);
   }
 
+  // files uploading on server
   // console.warn(req.files)
   const avatarLocalPath = req.files?.avatar[0]?.path;
-  const coverImageLocalPath = req.files?.coverImage[0]?.path;
+  // const coverImageLocalPath = req.files?.coverImage[0]?.path;
 
+  let coverImageLocalPath;
+  if (
+    req.files &&
+    Array.isArray(req.files.coverImage) &&
+    req.files.coverImage.length > 0
+  ) {
+    coverImageLocalPath = req.files.coverImage[0].path;
+  }
+
+  // strictly checking in multer
   if (!avatarLocalPath) {
     throw new ApiError(400, "Avatar file is missing.");
   }
+
+  // files uploading on Cloudinary
   const avatar = await uploadCloudinary(avatarLocalPath);
 
   let coverImage = "";
@@ -35,6 +50,7 @@ const registerUser = asyncHandler(async (req, res) => {
     coverImage = await uploadCloudinary(coverImageLocalPath);
   }
 
+  // create user Object (entry in db)
   const user = await User.create({
     fullname,
     avatar: avatar.url,
@@ -44,9 +60,9 @@ const registerUser = asyncHandler(async (req, res) => {
     username: username.toLowerCase(),
   });
 
+  // remove password and refresh token field from response
   const createdUser = await User.findById(user._id).select(
-    "-password",
-    "-refreshToken"
+    "-password -refreshToken"
   );
 
   if (!createdUser) {
