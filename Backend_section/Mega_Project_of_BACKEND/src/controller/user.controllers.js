@@ -74,4 +74,41 @@ const registerUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, createdUser, "User registered successfully"));
 });
 
-export { registerUser };
+const loginUser = asyncHandler(async (req, res) => {
+  const { username, password } = req.body;
+});
+
+const logoutUser = asyncHandler(async (req, res) => {
+  const { username, password } = req.body;
+});
+
+const getCurrentUser = asyncHandler(async (req, res) => {
+  const { username, password } = req.body;
+});
+
+const updateAvatar = asyncHandler(async (req, res) => {
+  const { username, password } = req.body;
+});
+
+const updateCoverImage = asyncHandler(async (req, res) => {});
+
+const getRefreshAccessToken = asyncHandler(async (req, res) => {});
+
+const updateAccountDetails = asyncHandler(async (req, res) => {});
+
+const getWatchHistory = asyncHandler(async (req, res) => {});
+
+const getUserChannelProfile = asyncHandler(async (req, res) => {});
+
+export {
+  registerUser,
+  loginUser,
+  logoutUser,
+  updateAvatar,
+  getCurrentUser,
+  updateCoverImage,
+  getRefreshAccessToken,
+  getUserChannelProfile,
+  getWatchHistory,
+  updateAccountDetails,
+};
