@@ -114,3 +114,5 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/register\",\"status\":\"201\",\"responseTime\":\"2586.063\"}","timestamp":"2024-12-17T10:36:20.011Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/register\",\"status\":\"409\",\"responseTime\":\"45.697\"}","timestamp":"2024-12-17T10:38:05.059Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/register\",\"status\":\"201\",\"responseTime\":\"2544.447\"}","timestamp":"2024-12-17T10:43:08.629Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/register\",\"status\":\"409\",\"responseTime\":\"59.043\"}","timestamp":"2024-12-17T10:49:08.419Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/register\",\"status\":\"201\",\"responseTime\":\"2268.070\"}","timestamp":"2024-12-17T10:49:42.415Z"}
