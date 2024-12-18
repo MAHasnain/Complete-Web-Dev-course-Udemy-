@@ -6,11 +6,11 @@ import {
   logoutUser,
   getCurrentUser,
   updateAccountDetails,
-  getRefreshAccessToken,
   updateAvatar,
   getUserChannelProfile,
   updateCoverImage,
   getWatchHistory,
+  refreshAccessToken,
 } from "../controller/user.controllers.js";
 import { verifyJwt } from "../middlewares/auth.middlewares.js";
 
@@ -35,7 +35,7 @@ router.route("/").get(getCurrentUser);
 router.route("/").patch(updateAvatar);
 router.route("/").patch(updateCoverImage);
 router.route("/").patch(updateAccountDetails);
-router.route("/").get(getRefreshAccessToken);
+router.route("/").get(refreshAccessToken);
 router.route("/").get(getUserChannelProfile);
 router.route("/").get(getWatchHistory);
 

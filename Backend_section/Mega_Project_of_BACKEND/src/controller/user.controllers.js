@@ -3,6 +3,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { uploadCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
+import jwt from "jsonwebtoken";
 
 const generateRefreshAndAccessToken = async (userId) => {
   try {
@@ -182,7 +183,55 @@ const updateAvatar = asyncHandler(async (req, res) => {
 
 const updateCoverImage = asyncHandler(async (req, res) => {});
 
-const getRefreshAccessToken = asyncHandler(async (req, res) => {});
+const refreshAccessToken = asyncHandler(async (req, res) => {
+  // get refresh token from cookies or body  (encoded token)
+  const incomingRefreshToken =
+    req.cookies.refreshToken || req.body.refreshToken;
+
+  // validation: token feild me token h ya nhi
+  if (!incomingRefreshToken) {
+    throw new ApiError(401, "Invalid refresh token");
+  }
+
+  try {
+    // jwt.verify se decode krna h token ko
+    const decodedToken = jwt.verify(
+      incomingRefreshToken,
+      process.env.REFRESH_TOKEN_SECRET
+    );
+
+    // validation: is incomingRefreshToken equals to bd-token
+    const user = await User.findById(decodedToken?._id);
+
+    if (incomingRefreshToken !== user?.refreshToken) {
+      throw new ApiError(404, "Refresh token is used or expired");
+    }
+
+    // generate new token (generateRefreshAndAccessToken)
+    const { accessToken, newRefreshToken } =
+      await generateRefreshAndAccessToken(user._id);
+
+    // options creation
+    const options = {
+      httpOnly: true,
+      secure: true,
+    };
+    // return response
+    return res
+      .status(200)
+      .cookie("accessToken", accessToken, options)
+      .cookie("accessToken", newRefreshToken, options)
+      .json(
+        new ApiResponse(
+          200,
+          { accessToken, refreshToken: newRefreshToken },
+          "access token is refreshed"
+        )
+      );
+  } catch (error) {
+    throw new ApiError(501, error?.message || "Invalid refresh token");
+  }
+});
 
 const updateAccountDetails = asyncHandler(async (req, res) => {});
 
@@ -197,7 +246,7 @@ export {
   updateAvatar,
   getCurrentUser,
   updateCoverImage,
-  getRefreshAccessToken,
+  refreshAccessToken,
   getUserChannelProfile,
   getWatchHistory,
   updateAccountDetails,
