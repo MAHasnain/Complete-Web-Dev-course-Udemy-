@@ -12,6 +12,7 @@ import {
   updateCoverImage,
   getWatchHistory,
 } from "../controller/user.controllers.js";
+import { verifyJwt } from "../middlewares/auth.middlewares.js";
 
 const router = Router();
 
@@ -28,8 +29,8 @@ router.route("/register").post(
   ]),
   registerUser
 );
-router.route("/").post(loginUser);
-router.route("/").post(logoutUser);
+router.route("/login").post(loginUser);
+router.route("/logout").post(verifyJwt, logoutUser);
 router.route("/").get(getCurrentUser);
 router.route("/").patch(updateAvatar);
 router.route("/").patch(updateCoverImage);
