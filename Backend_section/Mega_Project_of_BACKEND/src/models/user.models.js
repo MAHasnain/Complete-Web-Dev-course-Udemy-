@@ -93,7 +93,7 @@ userSchema.methods.isPasswordCorrect = async function (password) {
  * The token's expiration time is specified by the ACCESS_TOKEN_EXPIRY environment variable.
  */
 userSchema.methods.generateAccessToken = function () {
-  jwt.sign(
+  return jwt.sign(
     {
       _id: this._id,
       name: this.name,
@@ -115,7 +115,7 @@ userSchema.methods.generateAccessToken = function () {
  * The token's expiration time is specified by the REFRESH_TOKEN_EXPIRY environment variable.
  */
 userSchema.methods.generateRefreshToken = function () {
-  jwt.sign(
+  return jwt.sign(
     {
       _id: this._id,
     },
