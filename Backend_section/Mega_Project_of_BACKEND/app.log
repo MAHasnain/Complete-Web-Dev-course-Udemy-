@@ -173,3 +173,15 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/v1/users/current-user\",\"status\":\"500\",\"responseTime\":\"2.102\"}","timestamp":"2024-12-19T02:21:51.977Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/login\",\"status\":\"200\",\"responseTime\":\"711.511\"}","timestamp":"2024-12-19T02:21:57.900Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/v1/users/current-user\",\"status\":\"200\",\"responseTime\":\"55.454\"}","timestamp":"2024-12-19T02:22:05.414Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/v1/users/current-user\",\"status\":\"500\",\"responseTime\":\"7.531\"}","timestamp":"2024-12-19T15:53:34.934Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/login\",\"status\":\"200\",\"responseTime\":\"5229.983\"}","timestamp":"2024-12-19T15:54:12.348Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/change-password\",\"status\":\"-\",\"responseTime\":\"-\"}","timestamp":"2024-12-19T15:55:48.973Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/change-password\",\"status\":\"-\",\"responseTime\":\"-\"}","timestamp":"2024-12-19T15:56:13.606Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/v1/users/current-user\",\"status\":\"200\",\"responseTime\":\"144.174\"}","timestamp":"2024-12-19T15:56:18.110Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/v1/users/current-user\",\"status\":\"500\",\"responseTime\":\"1.219\"}","timestamp":"2024-12-19T15:58:41.137Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/login\",\"status\":\"402\",\"responseTime\":\"227.806\"}","timestamp":"2024-12-19T15:58:50.991Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/login\",\"status\":\"200\",\"responseTime\":\"478.045\"}","timestamp":"2024-12-19T15:59:16.267Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/change-password\",\"status\":\"-\",\"responseTime\":\"-\"}","timestamp":"2024-12-19T16:24:44.259Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/change-password\",\"status\":\"402\",\"responseTime\":\"234.189\"}","timestamp":"2024-12-19T16:29:19.276Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/change-password\",\"status\":\"402\",\"responseTime\":\"262.159\"}","timestamp":"2024-12-19T16:31:57.824Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/v1/users/current-user\",\"status\":\"200\",\"responseTime\":\"50.582\"}","timestamp":"2024-12-19T16:43:42.678Z"}

@@ -11,6 +11,7 @@ import {
   updateCoverImage,
   getWatchHistory,
   refreshAccessToken,
+  changeCurrentPassword,
 } from "../controller/user.controllers.js";
 import { verifyJwt } from "../middlewares/auth.middlewares.js";
 
@@ -35,6 +36,7 @@ router.route("/current-user").get(verifyJwt, getCurrentUser);
 router.route("/").patch(updateAvatar);
 router.route("/").patch(updateCoverImage);
 router.route("/").patch(updateAccountDetails);
+router.route("/change-password").patch(verifyJwt, changeCurrentPassword);
 router.route("/refresh-token").get(refreshAccessToken);
 router.route("/").get(getUserChannelProfile);
 router.route("/").get(getWatchHistory);

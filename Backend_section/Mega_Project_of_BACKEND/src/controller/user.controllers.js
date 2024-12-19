@@ -189,6 +189,34 @@ const updateAvatar = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
 });
 
+const changeCurrentPassword = asyncHandler(async (req, res) => {
+  // get data from frontend(oldPassword, newPassword)
+  const { oldPassword, newPassword } = req.body;
+
+  // validation: is old and new password empty
+  // if (!(oldPassword && newPassword)) {
+  //   throw new ApiError(401, "old and new password is required");
+  // }
+
+  // old password (db) ko variable me store kr k
+  const user = await User.findById(req.user?._id);
+  const isValidPassword = await user.isPasswordCorrect(oldPassword);
+
+  // validation: is old password correct
+  if (!isValidPassword) {
+    throw new ApiError(402, "Invalid old password");
+  }
+
+  // new password assign in user.password (db)
+  user.password = newPassword;
+
+  // user save krna h (db call)
+  await user.save({ validateBeforeSave: false });
+
+  // return response
+  return res.status(200, {}, "password changed successfully");
+});
+
 const updateCoverImage = asyncHandler(async (req, res) => {});
 
 const refreshAccessToken = asyncHandler(async (req, res) => {
@@ -258,4 +286,5 @@ export {
   getUserChannelProfile,
   getWatchHistory,
   updateAccountDetails,
+  changeCurrentPassword,
 };
