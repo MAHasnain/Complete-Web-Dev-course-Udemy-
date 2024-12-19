@@ -31,11 +31,11 @@ router.route("/register").post(
 );
 router.route("/login").post(loginUser);
 router.route("/logout").post(verifyJwt, logoutUser);
-router.route("/").get(getCurrentUser);
+router.route("/current-user").get(verifyJwt, getCurrentUser);
 router.route("/").patch(updateAvatar);
 router.route("/").patch(updateCoverImage);
 router.route("/").patch(updateAccountDetails);
-router.route("/").get(refreshAccessToken);
+router.route("/refresh-token").get(refreshAccessToken);
 router.route("/").get(getUserChannelProfile);
 router.route("/").get(getWatchHistory);
 
