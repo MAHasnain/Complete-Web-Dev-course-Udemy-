@@ -15,6 +15,7 @@ import {
 } from "../controller/user.controllers.js";
 import { verifyJwt } from "../middlewares/auth.middlewares.js";
 
+
 const router = Router();
 
 router.route("/register").post(
@@ -33,8 +34,8 @@ router.route("/register").post(
 router.route("/login").post(loginUser);
 router.route("/logout").post(verifyJwt, logoutUser);
 router.route("/current-user").get(verifyJwt, getCurrentUser);
-router.route("/").patch(updateAvatar);
-router.route("/").patch(updateCoverImage);
+router.route("/avatar").patch(verifyJwt, upload.single("avatar"), updateAvatar);
+router.route("/cover-image").patch(verifyJwt, upload.single("coverImage"), updateCoverImage);
 router.route("/account-detail").patch(verifyJwt, updateAccountDetails);
 router.route("/change-password").patch(verifyJwt, changeCurrentPassword);
 router.route("/refresh-token").get(refreshAccessToken);
