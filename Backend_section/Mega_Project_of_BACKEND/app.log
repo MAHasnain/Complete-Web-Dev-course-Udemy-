@@ -185,3 +185,5 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/change-password\",\"status\":\"402\",\"responseTime\":\"234.189\"}","timestamp":"2024-12-19T16:29:19.276Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/change-password\",\"status\":\"402\",\"responseTime\":\"262.159\"}","timestamp":"2024-12-19T16:31:57.824Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/v1/users/current-user\",\"status\":\"200\",\"responseTime\":\"50.582\"}","timestamp":"2024-12-19T16:43:42.678Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/login\",\"status\":\"200\",\"responseTime\":\"1268.955\"}","timestamp":"2024-12-20T01:58:57.592Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/v1/users/current-user\",\"status\":\"200\",\"responseTime\":\"53.000\"}","timestamp":"2024-12-20T01:59:09.914Z"}

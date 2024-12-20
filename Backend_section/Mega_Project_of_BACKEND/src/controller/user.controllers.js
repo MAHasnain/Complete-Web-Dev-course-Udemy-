@@ -214,7 +214,9 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
   await user.save({ validateBeforeSave: false });
 
   // return response
-  return res.status(200, {}, "password changed successfully");
+  return res
+    .status(200)
+    .json(new ApiResponse(200, {}, "password changed successfully"));
 });
 
 const updateCoverImage = asyncHandler(async (req, res) => {});
