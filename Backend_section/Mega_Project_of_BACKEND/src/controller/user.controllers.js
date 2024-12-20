@@ -186,7 +186,39 @@ const getCurrentUser = asyncHandler(async (req, res) => {
 });
 
 const updateAvatar = asyncHandler(async (req, res) => {
-  const { username, password } = req.body;
+  // file ka path grab krna h for multer
+  const avatarLocalPath = req.file?.path;
+
+  // validation : path me file h ya nhi
+  if (!avatarLocalPath) {
+    throw new ApiError(401, "Avatar file is missing");
+  }
+
+  // upload on cloudinary
+  const avatar = await uploadCloudinary(avatarLocalPath);
+
+  // valiation : is url missing
+  if (!avatar?.url) {
+    throw new ApiError(403, "Error while avatar uploading on cloudinary");
+  }
+
+  // url save in user obj (db call)
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $set: {
+        avatar: avatar.url,
+      },
+    },
+    {
+      new: true,
+    }
+  ).select(" -password");
+
+  // return response
+  return res
+    .status(200)
+    .json(new ApiResponse(200, user, "user avatar updated successfully."));
 });
 
 const changeCurrentPassword = asyncHandler(async (req, res) => {
@@ -219,7 +251,39 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, {}, "password changed successfully"));
 });
 
-const updateCoverImage = asyncHandler(async (req, res) => {});
+const updateCoverImage = asyncHandler(async (req, res) => {
+  // file ka path grab krna h
+  const coverImageLocalPath = req.file?.path;
+
+  // validation: path me file h ya nhi
+  if (!coverImageLocalPath) {
+    throw new ApiError(401, "Cover Image file is missing");
+  }
+
+  // file upload on cloudinary
+  const coverImage = await uploadCloudinary(coverImageLocalPath);
+
+  // validation: is url missing
+  if (!coverImage?.url) {
+    throw new ApiError(403, "Error while file uploading on cloudinary");
+  }
+
+  // url save in db user obj
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $set: {
+        coverImage: coverImage.url,
+      },
+    },
+    { new: true }
+  ).select(" -password");
+
+  // response return
+  return res
+    .status(200)
+    .json(new ApiResponse(200, user, "user cover image updated successfully"));
+});
 
 const refreshAccessToken = asyncHandler(async (req, res) => {
   // get refresh token from cookies or body  (encoded token)
