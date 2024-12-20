@@ -191,3 +191,13 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/account-detail\",\"status\":\"401\",\"responseTime\":\"3.517\"}","timestamp":"2024-12-20T02:31:10.120Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/account-detail\",\"status\":\"500\",\"responseTime\":\"0.996\"}","timestamp":"2024-12-20T02:31:24.683Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/account-detail\",\"status\":\"200\",\"responseTime\":\"138.709\"}","timestamp":"2024-12-20T02:32:16.268Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/avatar\",\"status\":\"500\",\"responseTime\":\"6.963\"}","timestamp":"2024-12-20T14:45:51.921Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/login\",\"status\":\"404\",\"responseTime\":\"64.316\"}","timestamp":"2024-12-20T14:46:20.107Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/login\",\"status\":\"404\",\"responseTime\":\"56.363\"}","timestamp":"2024-12-20T14:47:37.769Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/register\",\"status\":\"400\",\"responseTime\":\"9454.128\"}","timestamp":"2024-12-20T14:48:58.830Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/register\",\"status\":\"201\",\"responseTime\":\"3709.592\"}","timestamp":"2024-12-20T14:49:17.896Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/login\",\"status\":\"200\",\"responseTime\":\"781.038\"}","timestamp":"2024-12-20T14:49:47.229Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/avatar\",\"status\":\"500\",\"responseTime\":\"8434.637\"}","timestamp":"2024-12-20T14:50:08.906Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/avatar\",\"status\":\"200\",\"responseTime\":\"4839.470\"}","timestamp":"2024-12-20T14:51:39.224Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/avatar\",\"status\":\"200\",\"responseTime\":\"7278.217\"}","timestamp":"2024-12-20T14:52:35.554Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/cover-image\",\"status\":\"200\",\"responseTime\":\"2213.181\"}","timestamp":"2024-12-20T14:53:15.409Z"}
