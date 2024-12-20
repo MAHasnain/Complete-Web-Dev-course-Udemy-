@@ -271,7 +271,33 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
   }
 });
 
-const updateAccountDetails = asyncHandler(async (req, res) => {});
+const updateAccountDetails = asyncHandler(async (req, res) => {
+  // get data from frontend (name, email, ...)
+  const { fullname, email } = req.body;
+
+  // validation : is any field empty
+  if (!(fullname && email)) {
+    throw new ApiError(401, "full name and email is reqiured");
+  }
+
+  // user finding and updating from db
+  // set data
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $set: {
+        fullname,
+        email,
+      },
+    },
+    { new: true }
+  );
+
+  // return response
+  return res
+    .status(200)
+    .json(new ApiResponse(200, user, "account details updated successfully"));
+});
 
 const getWatchHistory = asyncHandler(async (req, res) => {});
 

@@ -187,3 +187,7 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/v1/users/current-user\",\"status\":\"200\",\"responseTime\":\"50.582\"}","timestamp":"2024-12-19T16:43:42.678Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/login\",\"status\":\"200\",\"responseTime\":\"1268.955\"}","timestamp":"2024-12-20T01:58:57.592Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/v1/users/current-user\",\"status\":\"200\",\"responseTime\":\"53.000\"}","timestamp":"2024-12-20T01:59:09.914Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/v1/users/login\",\"status\":\"200\",\"responseTime\":\"725.593\"}","timestamp":"2024-12-20T02:30:56.865Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/account-detail\",\"status\":\"401\",\"responseTime\":\"3.517\"}","timestamp":"2024-12-20T02:31:10.120Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/account-detail\",\"status\":\"500\",\"responseTime\":\"0.996\"}","timestamp":"2024-12-20T02:31:24.683Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"PATCH\",\"url\":\"/api/v1/users/account-detail\",\"status\":\"200\",\"responseTime\":\"138.709\"}","timestamp":"2024-12-20T02:32:16.268Z"}
