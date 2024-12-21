@@ -39,7 +39,7 @@ router.route("/cover-image").patch(verifyJwt, upload.single("coverImage"), updat
 router.route("/account-detail").patch(verifyJwt, updateAccountDetails);
 router.route("/change-password").patch(verifyJwt, changeCurrentPassword);
 router.route("/refresh-token").get(refreshAccessToken);
-router.route("/").get(getUserChannelProfile);
+router.route("/channel/:username").get(getUserChannelProfile);
 router.route("/").get(getWatchHistory);
 
 export default router;
