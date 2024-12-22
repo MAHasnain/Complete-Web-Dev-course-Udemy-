@@ -4,6 +4,7 @@ import { ApiError } from "../utils/ApiError.js";
 import { uploadCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
 
 const generateRefreshAndAccessToken = async (userId) => {
   try {
@@ -363,7 +364,67 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, user, "account details updated successfully"));
 });
 
-const getWatchHistory = asyncHandler(async (req, res) => {});
+const getWatchHistory = asyncHandler(async (req, res) => {
+  // get user watchHistory from req.user._id
+  // user pr aggregate kr k match pipeline lagana h (req.user._id k string ko mongoose.Types se monogoDB id me convert krna h)
+  const user = await User.aggregate([
+    {
+      $match: {
+        _id: new mongoose.Types.ObjectId(req.user._id),
+      },
+    },
+    {
+      // then lookup krna h videos (id field) se
+      $lookup: {
+        from: "videos",
+        foreignField: "_id",
+        localField: "watchHistory",
+        as: "watchHistory",
+
+        // then sub lookup krna h video k owner pr
+        pipeline: [
+          {
+            $lookup: {
+              from: "users",
+              localField: "owner",
+              foreignField: "_id",
+              as: "owner",
+              // owner se selected fields lene k liye project pipeline lagani h
+              pipeline: [
+                {
+                  $project: {
+                    fullname: 1,
+                    username: 1,
+                    avatar: 1,
+                  },
+                },
+              ],
+            },
+          },
+          // further addField ki pipeLine laga k  (project se array milta h )
+          {
+            $addFields: {
+              owner: {
+                $first: "$owner",
+              },
+            },
+          },
+        ],
+      },
+    },
+  ]);
+
+  //  return response
+  return res
+    .status(200)
+    .json(
+      new ApiResponse(
+        200,
+        user[0].watchHistory,
+        "User watch history fetched successfully"
+      )
+    );
+});
 
 const getUserChannelProfile = asyncHandler(async (req, res) => {
   // get details from url
@@ -437,7 +498,6 @@ const getUserChannelProfile = asyncHandler(async (req, res) => {
   // validation : channel me ye details ayi ya nhi
   if (!channel?.length) {
     throw new ApiError(401, "channel does not exist");
-    
   }
 
   // return response

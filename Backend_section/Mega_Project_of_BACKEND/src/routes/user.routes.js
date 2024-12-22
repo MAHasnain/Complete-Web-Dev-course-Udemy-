@@ -40,6 +40,6 @@ router.route("/account-detail").patch(verifyJwt, updateAccountDetails);
 router.route("/change-password").patch(verifyJwt, changeCurrentPassword);
 router.route("/refresh-token").get(refreshAccessToken);
 router.route("/channel/:username").get(getUserChannelProfile);
-router.route("/").get(getWatchHistory);
+router.route("/history").get(verifyJwt, getWatchHistory);
 
 export default router;
