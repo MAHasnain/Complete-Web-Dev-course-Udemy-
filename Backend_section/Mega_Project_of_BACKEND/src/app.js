@@ -41,10 +41,12 @@ app.use(
 // import routes
 // import { healthcheckRouter } from "./controller/healthcheck.controllers.js";
 import userRouter from "./routes/user.routes.js";
+import videoRouter from "./routes/video.routes.js";
 import { errorHandler } from "./middlewares/errors.middlewares.js";
 
 // app.use("/api/v1/healthcheck", healthcheckRouter);
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/video", videoRouter);
 
 app.use(errorHandler);
 
