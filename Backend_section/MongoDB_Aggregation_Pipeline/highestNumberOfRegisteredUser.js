@@ -6,7 +6,6 @@ use("Learning_Aggregation_pipeline");
 
 // which country has the highest number of registered users ?
 
-// Find a document in a collection.
 db.getCollection("users").aggregate([
   {
     $group: {
