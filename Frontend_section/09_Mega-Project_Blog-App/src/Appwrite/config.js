@@ -1,4 +1,4 @@
-import { Client, ID, Databases, Storage } from "appwrite";
+import { Client, ID, Databases, Storage, Query } from "appwrite";
 import config from "../config/config";
 
 export class Service {
@@ -53,7 +53,7 @@ export class Service {
 
   async deletePost(slug) {
     try {
-      await this.databases.updateDocument(
+      return await this.databases.updateDocument(
         config.appwriteProjectId,
         config.appwriteCollectionId,
         slug
@@ -63,4 +63,61 @@ export class Service {
     }
     return false;
   }
+
+  async getPost(slug) {
+    try {
+      return await this.databases.getDocument(
+        config.appwriteDBId,
+        config.appwriteCollectionId,
+        slug
+      );
+    } catch (error) {
+      console.log(`Appwrite service :: getPost :: error`, error);
+    }
+  }
+
+  async getPosts(queries = [(Query.equal = "active")]) {
+    try {
+      return await this.databases.listDocuments(
+        config.appwriteDBId,
+        config.appwriteCollectionId,
+        queries
+      );
+    } catch (error) {
+      console.log(`Appwrite service :: getPosts :: error`, error);
+    }
+  }
+
+  // file methods
+  async uploadFile(file) {
+    try {
+      return await this.bucket.createFile(config.appwriteBucketId, ID.unique(), file);
+    } catch (error) {
+      console.log(`Appwrite service :: uploadFile :: error`, error);
+    }
+    return false;
+  }
+
+  async deleteFile(fileId) {
+    try {
+      await this.deleteFile(
+        config.appwriteBucketId,
+        fileId
+      )
+      return true 
+    } catch (error) {
+      console.log(`Appwrite service :: deleteFile :: error`, error);
+    }
+    return false
+  }
+
+  geyFilePreview (fileId){
+    return this.bucket.getFilePreview(
+      config.appwriteBucketId,
+      fileId
+    )
+  }
 }
+
+const service = new Service();
+export default service;
