@@ -111,7 +111,7 @@ export class Service {
     return false
   }
 
-  geyFilePreview (fileId){
+  getFilePreview (fileId){
     return this.bucket.getFilePreview(
       config.appwriteBucketId,
       fileId

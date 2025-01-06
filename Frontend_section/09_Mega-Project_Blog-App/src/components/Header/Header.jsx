@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Container, Logo } from "../index";
+import { Container, Logo, LogoutBtn } from "../index";
 const Header = () => {
   const authStatus = useSelector((state) => state.auth.status);
 
-  const navigator = useNavigate()
+  const navigator = useNavigate();
   const navItems = [
     {
       name: "Home",
@@ -57,9 +57,11 @@ const Header = () => {
                   </li>
                 ) : null
               )}
-              {
-                authStatus &&
-              }
+              {authStatus && (
+                <li>
+                  <LogoutBtn />
+                </li>
+              )}
             </ul>
           </nav>
         </Container>
