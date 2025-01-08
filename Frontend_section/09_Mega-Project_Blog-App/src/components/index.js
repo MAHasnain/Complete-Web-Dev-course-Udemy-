@@ -9,6 +9,7 @@ import RTE from "./RTE.jsx";
 import Select from "./Select.jsx";
 import PostForm from "./PostForm/PostForm.jsx";
 import PostCard from "./PostCard.jsx";
+import { Protected } from "./AuthLayout.jsx";
 
 export {
   Logo,
@@ -22,4 +23,5 @@ export {
   Select,
   PostForm,
   PostCard,
+  Protected,
 };
