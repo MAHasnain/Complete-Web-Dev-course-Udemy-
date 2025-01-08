@@ -7,6 +7,8 @@ import Button from "./Button.jsx";
 import Input from "./Input.jsx";
 import RTE from "./RTE.jsx";
 import Select from "./Select.jsx";
+import PostForm from "./PostForm/PostForm.jsx";
+import PostCard from "./PostCard.jsx";
 
 export {
   Logo,
@@ -18,4 +20,6 @@ export {
   Input,
   RTE,
   Select,
+  PostForm,
+  PostCard,
 };

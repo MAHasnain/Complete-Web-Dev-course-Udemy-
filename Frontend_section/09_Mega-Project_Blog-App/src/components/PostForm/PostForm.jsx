@@ -1,6 +1,6 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Input, Button, RTE, Select } from "../index";
+// import { Input, Button, RTE, Select } from "../index";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import service from "../../Appwrite/config";
@@ -17,7 +17,7 @@ const PostForm = ({ post }) => {
     });
 
   const navigate = useNavigate();
-  useSelector((state) => state.user.userData);
+  const userData = useSelector((state) => state.user.userData);
 
   const submit = async (data) => {
     if (post) {
@@ -49,7 +49,42 @@ const PostForm = ({ post }) => {
     }
   };
 
-  return <></>;
+  const slugTransform = useCallback((value) => {
+    if (value && typeof value === "string")
+      //     const slug = value.toLocaleLowerCase().replace(/ /g, '-')
+      // setValue('slug', slug)
+      // return slug
+
+      return value
+        .trim()
+        .toLowerCase()
+        .replace(/^[a-zA-Z\d\s]+/g, "-")
+        .replace(/\/s/g, "-");
+    return "";
+  }, []);
+
+  useEffect(() => {
+    const subscription = watch((value, { name }) => {
+      if (name === "title") {
+        setValue("slug", slugTransform(value.title));
+      }
+    });
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [watch, slugTransform, setValue]);
+
+  return (
+    <>
+      <form
+        action=""
+        onSubmit={handleSubmit(submit)}
+        className="flex flex-wrap"
+      >
+        <div className=""></div>
+      </form>
+    </>
+  );
 };
 
 export default PostForm;
