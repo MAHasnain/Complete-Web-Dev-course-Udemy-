@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, PostCard } from "../components";
 import service from "../Appwrite/config";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -19,9 +20,11 @@ const Home = () => {
           <Container>
             <div className="flex flex-wrap">
               <div className="p-2 w-full">
-                <h2 className="text-2xl font-bold hover:text-gray-500">
-                  Login to read Posts
-                </h2>
+                <Link to="/login">
+                  <h2 className="text-2xl font-bold hover:text-gray-500">
+                    Login to read Posts
+                  </h2>
+                </Link>
               </div>
             </div>
           </Container>
@@ -32,7 +35,7 @@ const Home = () => {
   return (
     <div className="w-full py-8">
       <Container>
-        <div className="flex flex-wrap" >
+        <div className="flex flex-wrap">
           {posts.map((post) => (
             <div key={post.$id} className="w-1/4 p-2">
               {/* <PostCard post={post} /> */}
