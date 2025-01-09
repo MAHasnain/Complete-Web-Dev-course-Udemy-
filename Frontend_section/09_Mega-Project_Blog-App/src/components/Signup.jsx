@@ -4,9 +4,7 @@ import authService from "../Appwrite/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { login } from "../store/authSlice";
-import Logo from "./logo";
-import Input from "./Input";
-import Button from "./Button";
+import { Button, Input, Logo } from "./index.js";
 const Signup = () => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
@@ -64,6 +62,12 @@ const Signup = () => {
                 placeholder="Enter your email"
                 {...register("email", {
                   required: true,
+                  validate: {
+                    matchPatern: (value) =>
+                      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
+                        value
+                      ) || "Email address must be a valid address",
+                  },
                 })}
               />
               <Input

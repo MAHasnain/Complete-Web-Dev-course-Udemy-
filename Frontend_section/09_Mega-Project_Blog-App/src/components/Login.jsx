@@ -6,6 +6,7 @@ import authService from "../Appwrite/auth";
 import { login as authLogin } from "../store/authSlice";
 import Logo from "./logo";
 import Input from "./Input";
+import Button from "./Button";
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -81,6 +82,9 @@ export const Login = () => {
                   },
                 })}
               />
+              <Button className="w-full" type="submit">
+                Sign In
+              </Button>
             </div>
           </form>
         </div>
