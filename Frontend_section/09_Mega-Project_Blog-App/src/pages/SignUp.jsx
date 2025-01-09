@@ -1,4 +1,4 @@
-import { Signup as SignUpComponent } from "../components/Signup";
+import SignUpComponent from "../components/Signup";
 
 const SignUp = () => {
   return (
@@ -8,4 +8,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUp

@@ -1,4 +1,4 @@
-import { LogIn as LogInComponent } from "../components/Login.jsx";
+import { Login as LogInComponent } from "../components/Login.jsx";
 
 const Login = () => {
   return (

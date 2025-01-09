@@ -7,10 +7,10 @@ import { login as authLogin } from "../store/authSlice";
 import Logo from "./logo";
 import Input from "./Input";
 
-const Login = () => {
+export const Login = () => {
   const dispatch = useDispatch();
   const [error, setError] = useState("");
-  const { register, handleSubmit } = useForm(); 
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
 
   const login = async (data) => {
@@ -88,5 +88,3 @@ const Login = () => {
     </>
   );
 };
-
-export default Login;

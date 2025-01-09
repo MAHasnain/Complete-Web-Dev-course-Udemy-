@@ -2,12 +2,13 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import authService from "../Appwrite/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { register, handleSubmit } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { login } from "../store/authSlice";
 import Logo from "./logo";
 import Input from "./Input";
 import Button from "./Button";
 const Signup = () => {
+  const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -50,7 +51,7 @@ const Signup = () => {
             </Link>
           </p>
           {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-          <form onSubmit={handleSubmit(create)}>
+          <form onSubmit={handleSubmit(signup)}>
             <div className="space-y-5">
               <Input
                 label="Full Name"
@@ -62,6 +63,14 @@ const Signup = () => {
                 label="Email: "
                 placeholder="Enter your email"
                 {...register("email", {
+                  required: true,
+                })}
+              />
+              <Input
+                label="Password: "
+                type="password"
+                placeholder="Enter your password"
+                {...register("password", {
                   required: true,
                 })}
               />

@@ -5,7 +5,7 @@ import { Container, Logo, LogoutBtn } from "../index";
 const Header = () => {
   const authStatus = useSelector((state) => state.auth.status);
 
-  const navigator = useNavigate();
+  const navigate = useNavigate();
   const navItems = [
     {
       name: "Home",
@@ -50,7 +50,7 @@ const Header = () => {
                   <li key={item.name}>
                     <button
                       className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
-                      onClick={() => navigator(item.slug)}
+                      onClick={() => navigate(item.slug)}
                     >
                       {item.name}
                     </button>
