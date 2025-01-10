@@ -63,7 +63,7 @@ export const Login = () => {
                   required: true,
                   validate: {
                     matchPattern: (value) =>
-                      /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/.test(value) ||
+                      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
                       "Email address must be a valid address",
                   },
                 })}
@@ -74,12 +74,6 @@ export const Login = () => {
                 placeholder="Enter your password"
                 {...register("password", {
                   required: true,
-                  validate: {
-                    matchPattern: (value) =>
-                      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(
-                        value
-                      ),
-                  },
                 })}
               />
               <Button className="w-full" type="submit">
